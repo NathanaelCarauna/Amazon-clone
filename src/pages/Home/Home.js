@@ -9,6 +9,7 @@ import Banner3 from "../../BannerImages/Banner3.jpg";
 import Banner4 from "../../BannerImages/Banner4.jpg";
 import Banner5 from "../../BannerImages/Banner5.jpg";
 import Banner6 from "../../BannerImages/Banner6.jpg";
+import BackToTop from "../BackToTop/BackToTop";
 
 const Home = () => {
   const bannerImages = [Banner1, Banner2, Banner3, Banner4, Banner5, Banner6];
@@ -63,7 +64,9 @@ const Home = () => {
               />
             ))}
           </div>
-          <div style={{ marginTop: "40px" }}>{/* back to top */}</div>
+          <div style={{ marginTop: "40px" }}>
+            <BackToTop />
+          </div>
         </div>
       </div>
     </div>
