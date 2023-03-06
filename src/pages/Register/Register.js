@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import AmazonLogo from "../../Amazon_Logo.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,17 @@ import { registerInitiate } from "../../redux/actions";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const {user} = useSelector(state => state.data)
+  // console.log("State=>", user)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(user){
+      navigate('/')
+    }
+  }, [user, navigate])
 
   let dispatch = useDispatch();
 
