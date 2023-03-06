@@ -1,0 +1,19 @@
+.home {
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+}
+
+.item-container{
+    display: flex;
+    color: white;
+    background-color: #2b2727;    
+}
+
+.item-container p {
+    margin: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
