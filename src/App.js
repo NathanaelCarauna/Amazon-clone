@@ -11,6 +11,10 @@ import { setUser } from "./redux/actions";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Checkout from "./pages/Checkout/Checkout";
 import Payment from "./pages/Payment/Payment";
+import {loadStripe} from "@stripe/stripe-js" 
+import {Elements} from "@stripe/react-stripe-js"
+
+const promise = loadStripe('pk_test_51MkXtZHqezJmjKmIrrSB4YPcq7TAsZixPZlFTj1rKAuoL7OouqsUNBs69UKn8AjLwflf4BdDAf89vFRoZRvZ4c7f00khGYoi7E');
 
 function App() {
   let dispatch = useDispatch();
@@ -31,7 +35,9 @@ function App() {
         <Route path="/payment" element={
             <>
               <Header/>
-              <Payment/>
+              <Elements stripe={promise}>
+                <Payment/>
+              </Elements>
             </>
           }/>
           <Route path="/product/:id" element={
