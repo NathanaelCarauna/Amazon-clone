@@ -22,6 +22,11 @@ const basketReducer = (state = initialState, action) => {
                 loading: false,
                 user: action.payload,
             }
+        case types.SET_USER: 
+            return {
+                ...state,
+                user: action.payload
+            }
         case types.REGISTER_FAIL:
         case types.LOGIN_FAIL:
             return {

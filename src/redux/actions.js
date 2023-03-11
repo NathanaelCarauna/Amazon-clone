@@ -32,6 +32,11 @@ const loginFail = (error) => ({
   payload: error
 })
 
+export const setUser = (user) => ({
+  type: types.SET_USER,
+  payload: user
+})
+
 export const registerInitiate = (email, password) => {
   return function (dispatch) {
     dispatch(registerStart());
