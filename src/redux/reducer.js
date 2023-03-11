@@ -25,6 +25,11 @@ const basketReducer = (state = initialState, action) => {
         ...state,
         basket: newBasket1,
       };
+      case types.SET_BASKET_EMPTY:
+        return{
+          ...state,
+          basket: [],
+        }
     case types.REGISTER_START:
     case types.LOGIN_START:
     case types.LOGOUT_START:

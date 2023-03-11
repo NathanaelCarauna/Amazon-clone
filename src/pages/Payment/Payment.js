@@ -10,6 +10,7 @@ import { db } from "../../utils/firebase";
 import {doc, setDoc} from 'firebase/firestore'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "../../utils/axios";
+import { setBasketEmpty } from "../../redux/actions";
 
 
 const Payment = () => {
@@ -54,6 +55,7 @@ const Payment = () => {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+        dispatch(setBasketEmpty())
         navigate("/orders", {replace: true});
       });
   };

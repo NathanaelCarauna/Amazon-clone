@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 import { auth } from  '../utils/firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { type } from "@testing-library/user-event/dist/type";
 
 //RegisterActions
 const registerStart = () => ({
@@ -59,6 +60,10 @@ export const removeFromBasket = (id) => ({
 export const setUser = (user) => ({
   type: types.SET_USER,
   payload: user
+})
+
+export const setBasketEmpty = () => ({
+  type: types.SET_BASKET_EMPTY
 })
 
 export const registerInitiate = (email, password) => {
