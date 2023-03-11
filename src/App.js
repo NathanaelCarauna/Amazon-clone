@@ -10,6 +10,7 @@ import { auth } from "./utils/firebase";
 import { setUser } from "./redux/actions";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Checkout from "./pages/Checkout/Checkout";
+import Payment from "./pages/Payment/Payment";
 
 function App() {
   let dispatch = useDispatch();
@@ -27,6 +28,12 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Routes>
+        <Route path="/payment" element={
+            <>
+              <Header/>
+              <Payment/>
+            </>
+          }/>
           <Route path="/product/:id" element={
             <>
               <Header/>
