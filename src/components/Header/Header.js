@@ -5,9 +5,17 @@ import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { logoutInitiate } from "../../redux/actions";
 
 const Header = () => {
   const {user} = useSelector( (state) => state.data);
+  let dispatch = useDispatch();
+
+  const handleAuth = () => {
+    if(user)
+      dispatch(logoutInitiate())
+  }
+
   return (
     <nav className="header">
       <Link to="/">
@@ -33,7 +41,7 @@ const Header = () => {
       </div>
       <div className="header-nav">
         <Link to={`${user ? "/" : "/login" }`} className="header-link">
-          <div className="header-option">
+          <div onClick={handleAuth} className="header-option">
             <span className="header-option1">Hello, {user ? user.email : "Guest"} </span>
             <span className="header-option2">{user ? "Sign Out" : "Sign In"}</span>
           </div>

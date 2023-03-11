@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 import { auth } from  '../utils/firebase'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 //RegisterActions
 const registerStart = () => ({
@@ -32,6 +32,20 @@ const loginFail = (error) => ({
   payload: error
 })
 
+//LogoutActions
+const logoutStart = () => ({
+  type: types.LOGOUT_START
+})
+
+const logoutSuccess = () => ({
+  type: types.LOGOUT_SUCCESS,
+})
+
+const logoutFail = (error) => ({
+  type: types.LOGOUT_FAIL,
+  payload: error
+})
+
 export const setUser = (user) => ({
   type: types.SET_USER,
   payload: user
@@ -56,5 +70,14 @@ export const loginInitiate = (email, password) => {
       dispatch(loginSuccess(user));
     })
     .catch((error) => dispatch(loginFail(error.message)));
+  }
+}
+
+export const logoutInitiate = () => {
+  return function(dispatch){
+    dispatch(logoutStart());
+    signOut(auth)
+    .then((resp) => dispatch(logoutSuccess()))
+    .catch((error) => dispatch(logoutFail(error.message)))
   }
 }
