@@ -46,6 +46,11 @@ const logoutFail = (error) => ({
   payload: error
 })
 
+export const addToBasket = (item) => ({
+  type: types.ADD_TO_BASKET,
+  payload: item,
+})
+
 export const setUser = (user) => ({
   type: types.SET_USER,
   payload: user
