@@ -8,6 +8,7 @@ import Register from "./pages/Register/Register";
 import { useDispatch } from "react-redux";
 import { auth } from "./utils/firebase";
 import { setUser } from "./redux/actions";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
 
 function App() {
   let dispatch = useDispatch();
@@ -25,6 +26,12 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Routes>
+          <Route path="/product/:id" element={
+            <>
+              <Header/>
+              <SingleProduct/>
+            </>
+          }/>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route
