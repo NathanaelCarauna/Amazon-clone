@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const Header = () => {
+  const {user} = useSelector( (state) => state.data);
   return (
     <nav className="header">
       <Link to="/">
@@ -30,10 +32,10 @@ const Header = () => {
         <SearchIcon className="searchIcon" />
       </div>
       <div className="header-nav">
-        <Link to="/login" className="header-link">
+        <Link to={`${user ? "/" : "/login" }`} className="header-link">
           <div className="header-option">
-            <span className="header-option1">Hello Guest</span>
-            <span className="header-option2">Sign In</span>
+            <span className="header-option1">Hello, {user ? user.email : "Guest"} </span>
+            <span className="header-option2">{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
         <Link to="/orders" className="header-link">
