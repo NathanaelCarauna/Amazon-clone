@@ -44,6 +44,12 @@ const Header = () => {
             <span className="header-option2">& Orders</span>
           </div>
         </Link>
+        <Link to="/login" className="header-link">
+          <div className="header-option">
+            <span className="header-option1">Your</span>
+            <span className="header-option2">Prime</span>
+          </div>
+        </Link>
         <Link to="/checkout" className="header-link">
           <div className="header-basket">
             <ShoppingCartOutlinedIcon />
