@@ -51,6 +51,11 @@ export const addToBasket = (item) => ({
   payload: item,
 })
 
+export const removeFromBasket = (id) => ({
+  type: types.REMOVE_FROM_BASKET,
+  payload: id,
+})
+
 export const setUser = (user) => ({
   type: types.SET_USER,
   payload: user
