@@ -10,17 +10,20 @@ const initialState = {
 const basketReducer = (state = initialState, action) => {
     switch(action.type){
         case types.REGISTER_START:
+        case types.LOGIN_START:
             return {
                 ...state,
                 loading: true,
             }
         case types.REGISTER_SUCCESS:
+        case types.LOGIN_SUCCESS:
             return {
                 ...state,
-                lodaing: false,
+                loading: false,
                 user: action.payload,
             }
         case types.REGISTER_FAIL:
+        case types.LOGIN_FAIL:
             return {
                 ...state,
                 loading: false,
