@@ -9,6 +9,9 @@ This project is a simple clone of Amazon's website 2021's version. It was build 
 <img src="./screenshots/payment.png">
 <img src="./screenshots/your_orders.png">
 
+## Configuration
+You will need a Firebase account and install firebase library and tools.
+Change the file *firebase.js* to config your secret key.
 
 ## How to run yourself
 
